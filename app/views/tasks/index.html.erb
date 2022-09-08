@@ -1,0 +1,24 @@
+<% provide(:title, 'タスク一覧') %>
+<%# モーダルのトリガーボタン %>
+<h1 class="title"><%= current_user.name %> の タスク</h1>
+<div class="col-md-2 offset-md-5">
+  <%= link_to 'NEW TASK CREATE',
+                new_task_path,
+                data: { remote: true },
+                class: "btn btn-primary",
+                id: "modalButton",
+                "data-bs-toggle" => "modal",
+                "data-bs-target" => "#modal" %>
+</div>
+
+<%= render 'modal' %>
+
+<div class="task-column col-md-12">
+  <p class="column-state col-md-1">State</p>
+  <p class="column-limit col-md-2">Limit</p>
+  <p class="column-task col-md-1">Task</p>
+</div>
+
+<div id="tasks">
+  <%= render @tasks %>
+</div>

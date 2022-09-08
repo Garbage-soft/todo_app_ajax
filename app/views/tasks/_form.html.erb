@@ -1,0 +1,52 @@
+<%= form_with model: task, local: true, html: { onsubmit: "return false" } do |f| %>
+  <div id="errorField"></div>
+
+  <%# user_id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%# ステータス %>
+  <div class="form-group row">
+    <%= f.label :state, "State : ", class: "col-xl-5" %>
+
+    <% unless value == '更新' %>
+    <%# NEWの場合 %>
+      <div class="col-xl-7">
+        <%= button_tag 'TODO', type: 'button', class: "btn btn-success form-control", id: "state_btn" %>
+        <%= f.hidden_field :state, value: "TODO" %>
+      </div>
+    <% else %>
+    <%# EDITの場合 %>
+      <%# ステータスボタンに付与するクラスの取得 %>
+      <% if task.state == 'TODO' %>
+        <% state_class = 'btn-success' %>
+      <% elsif task.state == 'DOING' %>
+        <% state_class = 'btn-warning' %>
+      <% elsif task.state == 'DONE' %>
+        <% state_class = 'btn-secondary' %>
+      <% end %>
+
+      <div class="col-xl-7">
+        <%= button_tag state, type: 'button', class: "btn #{state_class} form-control", id: "state_btn" %>
+        <%= f.hidden_field :state, value: state %>
+      </div>
+    <% end %>
+  </div>
+
+  <%# デッドライン %>
+  <div class="form-group row">
+    <%= f.label :limit, "Limit : ", class: "col-sm-4" %>
+    <%= f.date_field :limit, class: "col-sm-3 form-control", value: Date.current.strftime() %>
+  </div>
+
+  <%# コンテンツ %>
+  <div class="form-group row">
+    <%= f.label :content, "Task :" %>
+    <%= f.text_field :content, autocomplete: 'off' %>
+  </div>
+
+  <%# ボタン %>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <%= button_tag value, type: 'button', class: "btn btn-primary", id: "submitButton" %>
+  </div>
+<% end %>

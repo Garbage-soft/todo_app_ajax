@@ -1,0 +1,48 @@
+<% provide(:title, "Log in") %>
+<h1 class="col-md-3 offset-md-5">ログイン</h1>
+
+<%# テキストボックスに初期値をセット %>
+
+<div class="col-md-6 offset-md-3">
+  <p>
+    サンプルユーザでログインする
+    <button class="btn btn-primary" id="sampleUserSet">値をセット</button>
+  </p>
+  <p>Email : sample-user@example.com</p>
+  <p>Password : sample-user</p>
+</div>
+
+<%# bootstrap5に準拠した記述に直す %>
+<div class="row">
+  <div class="col-md-6 offset-md-3"> <!-- col-md-offset-3 → offset-md-3 -->
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>ログイン状態を保持</span>
+      <% end %>
+
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <p>ユーザー新規作成 : <%= link_to "サインアップ", signup_path %></p>
+  </div>
+</div>
+
+<script>
+  // document.addEventListener("DOMContentLoaded", function () {
+    // 「値をセット」ボタンをクリックしたらテキストボックスにログインに必要な値がセットされる
+    document.getElementById('sampleUserSet').addEventListener('click', function () {
+      var email = document.getElementById('session_email')
+      var password = document.getElementById('session_password')
+      email.value = 'sample-user@example.com'
+      password.value = 'sample-user'
+    })
+  // }, false);
+</script>

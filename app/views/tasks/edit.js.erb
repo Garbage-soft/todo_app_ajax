@@ -1,0 +1,54 @@
+// フォームのレンダリング
+var form = document.getElementsByTagName('form')[0]
+// モーダルタイトル取得・変更
+var modalTitle = document.getElementById('modalLabel')
+modalTitle.innerHTML = 'タスクの編集'
+// フォームを更新用フォームに置き換える。ボタンの文字は「更新」に変更
+form.outerHTML = '<%= j(render 'form', task: @task, value: '更新', state: @task.state) %>'
+
+// ステータスボタンの押下動作 =======================================================
+var stateButton = document.getElementById('state_btn')
+var state = document.getElementById('task_state')
+
+stateButton.addEventListener('click', function() {
+  switch (state.value){
+    case 'TODO':
+      stateButton.innerHTML = 'DOING'
+      state.value = 'DOING'
+      stateButton.classList.remove('btn-success')
+      stateButton.classList.add('btn-warning')
+      break
+    case 'DOING':
+      stateButton.innerHTML = 'DONE'
+      state.value = 'DONE'
+      stateButton.classList.remove('btn-warning')
+      stateButton.classList.add('btn-secondary')
+      break
+    case 'DONE':
+      stateButton.innerHTML = 'TODO'
+      state.value = 'TODO'
+      stateButton.classList.remove('btn-secondary')
+      stateButton.classList.add('btn-success')
+      break
+  }
+  console.log('[CREATE TASK] State Change [' + state.value + ']')
+})
+// ==============================================================================
+
+// クライアント側でのバリデーション処理 ===============================================
+var submitButton = document.getElementById('submitButton');
+
+submitButton.addEventListener('click', function () {
+  var task_content = document.getElementById('task_content');
+  var errorField = document.getElementById('errorField');
+  // contentのチェック
+  if (task_content.value.length == 0 || task_content.value.length >= 51) {
+    console.log('[CONTENT INVALID]');
+    errorField.innerHTML = 'タスクは1文字以上、50文字以内で入力してください';
+    task_content.style.border = 'solid 2px red';
+  } else {
+    console.log('[POST CREATE TASK]');
+    this.form.submit();
+  }
+})
+// ==============================================================================
