@@ -80,10 +80,7 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
-<<<<<<< HEAD
     digest (3.1.0)
-=======
->>>>>>> origin/main
     erubi (1.11.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -105,7 +102,6 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.0)
     minitest (5.16.3)
     msgpack (1.5.6)
     net-imap (0.2.3)
@@ -123,16 +119,7 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.8)
-      mini_portile2 (~> 2.8.0)
-      racc (~> 1.4)
     nokogiri (1.13.8-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
-      racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.3)
     public_suffix (5.0.0)
@@ -204,19 +191,11 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.5.0)
-      mini_portile2 (~> 2.8.0)
     sqlite3 (1.5.0-x86_64-darwin)
-    sqlite3 (1.5.0-x86_64-linux)
-<<<<<<< HEAD
     strscan (3.0.4)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
-=======
-    thor (1.2.1)
-    tilt (2.0.11)
->>>>>>> origin/main
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -245,9 +224,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
-  ruby
   x86_64-darwin-20
-  x86_64-linux
 
 DEPENDENCIES
   bcrypt (= 3.1.13)
@@ -277,4 +254,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.7
+   2.3.22
