@@ -80,7 +80,10 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
+<<<<<<< HEAD
     digest (3.1.0)
+=======
+>>>>>>> origin/main
     erubi (1.11.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -122,6 +125,10 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
@@ -201,10 +208,15 @@ GEM
       mini_portile2 (~> 2.8.0)
     sqlite3 (1.5.0-x86_64-darwin)
     sqlite3 (1.5.0-x86_64-linux)
+<<<<<<< HEAD
     strscan (3.0.4)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
+=======
+    thor (1.2.1)
+    tilt (2.0.11)
+>>>>>>> origin/main
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
